@@ -1,5 +1,7 @@
 # Temporizador Pomodoro — TP Testing de Aplicaciones
 
+![CI - Tests Pomodoro](https://github.com/TU_USUARIO/TU_REPO/actions/workflows/ci.yml/badge.svg)
+
 Implementación de un temporizador Pomodoro con tests unitarios automatizados usando **pytest**.
 
 ## Estructura del proyecto
@@ -57,6 +59,25 @@ python main.py
 | 3 | `test_timer_finaliza_al_llegar_a_cero` | Edge case + callback |
 | 4 | `test_pausar_y_reanudar_no_descuenta_durante_pausa` | Flujo de pausa |
 | 5 | `test_alternancia_entre_modos_work_y_break` | Alternancia de ciclos |
+
+## CI/CD
+
+El pipeline de integración continua corre automáticamente en cada `push` y `pull_request` a `main` usando **GitHub Actions**.
+
+**Qué hace el pipeline** (`.github/workflows/ci.yml`):
+1. Checkout del código
+2. Setup Python 3.11 con cache de pip
+3. `pip install -r requirements.txt`
+4. `pytest -v` — falla el job si algún test falla
+5. Sube el reporte HTML como artifact (incluso si los tests fallaron)
+
+**Cómo descargar el reporte HTML:**
+1. Ir a la pestaña **Actions** del repositorio en GitHub
+2. Hacer clic en la ejecución deseada
+3. Al final de la página, en la sección **Artifacts**, descargar **pytest-report**
+4. Descomprimir y abrir `report.html` en el navegador
+
+> **Nota:** antes de hacer push, reemplazá `TU_USUARIO/TU_REPO` en el badge del README con el usuario y nombre real del repositorio.
 
 ## Decisiones de diseño
 
