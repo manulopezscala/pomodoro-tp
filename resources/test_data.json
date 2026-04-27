@@ -1,0 +1,45 @@
+{
+  "casos_validos": [
+    {
+      "descripcion": "Sesión estándar Pomodoro",
+      "work_duration": 1500,
+      "break_duration": 300
+    },
+    {
+      "descripcion": "Sesión corta para desarrollo",
+      "work_duration": 600,
+      "break_duration": 120
+    },
+    {
+      "descripcion": "Sesión mínima (1 segundo cada modo)",
+      "work_duration": 1,
+      "break_duration": 1
+    }
+  ],
+  "casos_invalidos": [
+    {
+      "descripcion": "work_duration cero",
+      "work_duration": 0,
+      "break_duration": 300,
+      "error_esperado": "ValueError"
+    },
+    {
+      "descripcion": "work_duration negativo",
+      "work_duration": -10,
+      "break_duration": 300,
+      "error_esperado": "ValueError"
+    },
+    {
+      "descripcion": "break_duration cero",
+      "work_duration": 1500,
+      "break_duration": 0,
+      "error_esperado": "ValueError"
+    },
+    {
+      "descripcion": "ambas duraciones negativas",
+      "work_duration": -1,
+      "break_duration": -1,
+      "error_esperado": "ValueError"
+    }
+  ]
+}
